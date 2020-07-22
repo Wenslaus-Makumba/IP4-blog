@@ -20,7 +20,7 @@ def login():
 
         flash('Invalid username or Password')
 
-    title = "Welcome to G~Blog"
+    title = "Welcome to the Blog"
     return render_template('auth/login.html', login_form=login_form, title=title)
 
 
@@ -33,7 +33,7 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        mail_message("Welcome to G~Blog","email/subscriber",user.email,user=user)
+        mail_message("Welcome to the Blog","email/subscriber",user.email,user=user)
 
         return redirect(url_for('auth.login'))
         title = "New Account"
