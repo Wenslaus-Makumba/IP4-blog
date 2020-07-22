@@ -13,7 +13,7 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    title = "Welcome to G~Blog"
+    title = "Welcome to the Blog"
     quote = get_quote()
 
     return render_template('index.html', title = title, quote=quote)
@@ -91,7 +91,7 @@ def new_blog():
         flash('You hew blog has been created!')
         return redirect(url_for('main.index'))
     
-    return render_template('newblogs.html', title='New Blog | Welcome to G~Blog', form=form)
+    return render_template('newblogs.html', title='New Blog | Welcome to the Blog', form=form)
 
 
 @main.route('/blog/<blog_id>/update', methods = ['GET','POST'])
@@ -126,7 +126,7 @@ def subscribe():
     email = request.form.get('subscriber')
     new_subscriber = Subscriber(email = email)
     new_subscriber.save_subscriber()
-    mail_message("Subscribed to D-Blog","email/welcome_subscriber",new_subscriber.email,new_subscriber=new_subscriber)
+    mail_message("Subscribed to the Blog","email/welcome_subscriber",new_subscriber.email,new_subscriber=new_subscriber)
     flash('Sucessfuly subscribed')
     return redirect(url_for('main.index'))
 
