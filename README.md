@@ -5,7 +5,7 @@
 This  is a flask application that allows writers to post blogs, edit and delete blogs. It also allows users who have signed up to comment on the blogs that have been posted by a writer.
 
 ## Live Link
-[View Site](https://cynthiagblog.herokuapp.com/)
+[View Site](https://stormy-savannah-06359.herokuapp.com/
 
 
 
