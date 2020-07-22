@@ -1,0 +1,4 @@
+Hello {{user.username}}!
+
+Thank you for subscribing to G~Blog!
+You will be receiving notifications everytime a new blog is posted.

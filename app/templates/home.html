@@ -1,0 +1,59 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="container-fluid" style="background-color: rgba(9, 14, 8, 0.952);height: 550px; color: wheat">
+  <div class="container">
+{% for blog in blogs.items %}
+<div class="hom">
+  <article class="media content-section">
+    {% if user.profile_pic_path %}
+
+    <img src="{{url_for('static',filename = user.profile_pic_path)}}" alt="" class="rounded" width="30px" height="30px">
+
+    {% else %}
+    <img src="{{url_for('static',filename = 'photos/user.png')}}" alt="" class="rounded" width="30px" height="30px">
+
+    {% endif %}
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2"
+          href="{{ url_for('main.user_posts', username=blog.user.username) }}">{{ blog.user.username }}</a>
+        <small class="text-muted">{{ blog.posted_on.strftime('%d-%m-%Y') }}</small>
+      </div>
+      <h2><a class="article-title" href="{{ url_for('main.blog', id=blog.id) }}">{{ blog.title }}</a></h2>
+      <p class="article-content">{{ blog.content }}</p>
+    </div>
+  </article>
+</div>
+<hr>
+{% endfor %}
+
+{% for page_num in blogs.iter_pages(left_edge = 1, right_edge = 1, left_current=1, right_current = 2) %}
+{% if page_num %}
+
+{% else%}
+...
+{% endif %}
+{% endfor %}
+
+
+<div class="col-md-4">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{ message }}
+    </div>
+    {% endfor %}
+    <form class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST" style="margin-bottom: 20px">
+      <div class="md-form form-group">
+        <label class="white-color">Email Address...</label><br>
+        <input type="email" class="form-control " name="subscriber" required>
+      </div><br><br>
+      <div class="md-form form-group">
+        <button class="btn btn-info" id="subs">Subscribe</button>
+      </div>
+    </form>
+</div>
+</div>
+</div>
+{% endblock %}

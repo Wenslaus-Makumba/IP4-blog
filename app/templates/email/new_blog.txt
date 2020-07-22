@@ -1,0 +1,7 @@
+Hello {{user.username}}!
+
+A new blog was posted on G~Blog
+
+Title: {{blog.title}}
+Post: {{blog.content|truncate(30)}}
+
