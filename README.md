@@ -1,4 +1,4 @@
-# G~Blog
+# the Blog
 #### https://github.com/Wenslaus-Makumba/IP4-blog
 
 # Description
